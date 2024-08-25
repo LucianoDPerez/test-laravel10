@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test Lucho",
+        "description": "",
+        "contact": {
+            "email": "lucianoperezvic84@gmail.com"
+        },
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "/api/"
+        }
+    ],
+    "paths": {
+        "/category/": {
+            "get": {
+                "tags": [
+                    "category"
+                ],
+                "summary": "Get Categories",
+                "description": "Get a list of categories",
+                "operationId": "ecfc0f963a6a5bd924813ba9329dd234",
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    },
+                    "404": {
+                        "description": "Categories not found"
+                    }
+                }
+            }
+        },
+        "/{categoryName}": {
+            "get": {
+                "tags": [
+                    "api"
+                ],
+                "summary": "Get entities by category",
+                "description": "Get a list of entities by category",
+                "operationId": "f97ea00e8ba1d4fb0f5297a95fe43483",
+                "parameters": [
+                    {
+                        "name": "categoryName",
+                        "in": "path",
+                        "description": "Category name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    },
+                    "404": {
+                        "description": "Category not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "BearerAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "category",
+            "description": "category"
+        },
+        {
+            "name": "api",
+            "description": "api"
+        }
+    ]
+}
